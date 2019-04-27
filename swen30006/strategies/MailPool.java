@@ -70,12 +70,12 @@ public class MailPool implements IMailPool {
 			try {
 				loadRobotTeam();
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw e;
 			}
 		}
 	}
 	
-	private void loadRobotTeam() throws Exception {
+	private void loadRobotTeam() throws ItemTooHeavyException {
 		Robot frontRobot = robots.getFirst();
 		/** if the front robot has got a MailItem in its hand */
 		if (!frontRobot.isEmpty()) {

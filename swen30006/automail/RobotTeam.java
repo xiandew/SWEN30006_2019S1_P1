@@ -31,7 +31,7 @@ public class RobotTeam {
      */
     private void moveTowards(int destination) {
     	/** wait two time steps before moving */
-    	if (Clock.Time() < lastMoveTime + 2) {
+    	if (Clock.Time() <= lastMoveTime + 2) {
     		return;
     	}
     	lastMoveTime = Clock.Time();
@@ -76,10 +76,8 @@ public class RobotTeam {
 		return deliveryItem;
 	}
 
-	public int getWeightCapacity() throws Exception {
-		if (members.size() > 3) {
-			throw new Exception("Invalid number of team members");
-		}
+	public int getWeightCapacity() {
+		assert (members.size() <= 3);
 		return
 			members.size() == 1 ? Robot.INDIVIDUAL_MAX_WEIGHT :
 			members.size() == 2 ? Robot.PAIR_MAX_WEIGHT :
