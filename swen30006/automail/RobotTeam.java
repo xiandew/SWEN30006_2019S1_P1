@@ -69,7 +69,11 @@ public class RobotTeam {
 		for (Robot member : members) {
 			team_id += String.format("%s ", member.id);
 		}
-		return String.format("(%s)", team_id);
+		return String.format("Team(%s)", team_id);
+	}
+	
+	public MailItem getDeliveryItem() {
+		return deliveryItem;
 	}
 
 	public int getWeightCapacity() throws Exception {
